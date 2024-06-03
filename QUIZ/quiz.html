@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./quiz.css">
+    <title>Quiz project</title>
+</head>
+<body>
+    <div class="container">
+        <div class="game">
+            <div class="conteint">
+                <h1 class="questions">Which of these fish is actually a fish?s</h1>
+                <div class="answers">
+                    <div class="answers">
+                        <input name="answer" type="radio" id="answer1" value="false">
+                        <label for="answer1">Answer1</label>
+                    </div>
+                    <div class="answers">
+                        <input name="answer" type="radio" id="answer1" value="false">
+                        <label for="answer2">Answer2</label>
+                    </div>
+                    <div class="answers">
+                        <input name="answer" type="radio" id="answer1" value="false">
+                        <label for="answer3">Answer3</label>
+                    </div>
+                    <div class="answers">
+                        <input name="answer" type="radio" id="answer1" value="false">
+                        <label for="answer4">Answer4</label>
+                    </div>
+                </div>
+            </div>
+            <button class="submit">submit</button>
+        </div>
+        <div class="results">
+            <h1>congratulations</h1>
+            <h3 class="correct">Correct Answer</h3>
+            <h3 class="wrong">Wrong Answer</h3>
+            <h2 class="score">score -30</h2>
+            <button class="play">play again</button>
+        </div>
+    </div>
+    <script src="./quiz.js"></script>
+</body>
+</html>
