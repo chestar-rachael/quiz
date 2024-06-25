@@ -39,13 +39,40 @@ const answersContainer = document.querySelector(".answers")
 const submit = document.querySelector(".submit")
 const play = document.querySelector(".play")
 
-let qIndex = 0
-let correctCount = 0
-let wrongCount = 0
-let total = 0
+let qIndex = 0;
+let correctCount = 0;
+let wrongCount = 0;
+let total = 0;
 let selectedAnswer;
 
+const playAgain= () =>{
+ qIndex = 0;
+ correctCount = 0;
+ wrongCount = 0;
+ total = 0;
+    showQuestion(qIndex);
+};
+
+play.addEventListener("click",()=>{ 
+    resultScreen.style.display = "none"
+    gameScreen.style.display ="block"
+    playAgain()
+
+})
+
+const  showResult = ()=>{
+    resultScreen.style.display = "block";
+    gameScreen.style.display ="none";
+
+    resultScreen.querySelector(".correct").textContent = `correct Answer:${correctCount}`;
+
+     resultScreen.querySelector(".wrong").textContent = `wrong Answer :${wrongCount}`;
+
+      resultScreen.querySelector(".score").textContent = `score :${(correctCount - wrongCount *10)}`;
+};
+
 const showQuestion = (qNumber) => {
+    if(qIndex === data.length) return showResult()
     selectedAnswer = null;
     question.textContent = data[qNumber].question
     answersContainer.innerHTML = data[qIndex].answers.map((item, index) => `<div class="answers">
@@ -70,7 +97,7 @@ const submitAnswer = () => {
         if (selectedAnswer !== null) {
             selectedAnswer === "true" ? correctAnswer++ : wrongCount++
             qIndex++
-            showQuestion(qIndex)
+            showQuestion(qIndex);
         } else alert("select an answer")
     })
 }
