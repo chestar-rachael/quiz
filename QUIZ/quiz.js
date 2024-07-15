@@ -33,7 +33,7 @@ const data = [
 
 
 const gameScreen = document.querySelector(".game")
-const resultSceen = document.querySelector(".results")
+const resultScreen = document.querySelector(".results")
 const question = document.querySelector(".question")
 const answersContainer = document.querySelector(".answers")
 const submit = document.querySelector(".submit")
@@ -45,34 +45,34 @@ let wrongCount = 0;
 let total = 0;
 let selectedAnswer;
 
-const playAgain= () =>{
- qIndex = 0;
- correctCount = 0;
- wrongCount = 0;
- total = 0;
+const playAgain = () => {
+    qIndex = 0;
+    correctCount = 0;
+    wrongCount = 0;
+    total = 0;
     showQuestion(qIndex);
 };
 
-play.addEventListener("click",()=>{ 
+play.addEventListener("click", () => {
     resultScreen.style.display = "none"
-    gameScreen.style.display ="block"
+    gameScreen.style.display = "block"
     playAgain()
 
 })
 
-const  showResult = ()=>{
+const showResult = () => {
     resultScreen.style.display = "block";
-    gameScreen.style.display ="none";
+    gameScreen.style.display = "none";
 
     resultScreen.querySelector(".correct").textContent = `correct Answer:${correctCount}`;
 
-     resultScreen.querySelector(".wrong").textContent = `wrong Answer :${wrongCount}`;
+    resultScreen.querySelector(".wrong").textContent = `wrong Answer :${wrongCount}`;
 
-      resultScreen.querySelector(".score").textContent = `score :${(correctCount - wrongCount *10)}`;
+    resultScreen.querySelector(".score").textContent = `score :${(correctCount - wrongCount * 10)}`;
 };
 
 const showQuestion = (qNumber) => {
-    if(qIndex === data.length) return showResult()
+    if (qIndex === data.length) return showResult()
     selectedAnswer = null;
     question.textContent = data[qNumber].question
     answersContainer.innerHTML = data[qIndex].answers.map((item, index) => `<div class="answers">
